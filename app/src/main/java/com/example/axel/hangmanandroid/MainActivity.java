@@ -13,13 +13,9 @@ import android.widget.TextView;
 import com.example.axel.hangmanandroid.net.ServerConnection;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-    boolean running = false;
-    private Controller cont;
     Handler handler;
     TextView txt;
     private ServerConnection serverConnection;
-    String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
         protected ServerConnection doInBackground(Void...voids ) {
             ServerConnection serverConnection = new ServerConnection();
             serverConnection.connect(handler);
+            serverConnection.createListener(handler);
             return serverConnection;
         }
 
         @Override
         protected void onPostExecute(ServerConnection serverConnection){
-            serverConnection.createListener(handler);
             MainActivity.this.serverConnection = serverConnection;
         }
 
