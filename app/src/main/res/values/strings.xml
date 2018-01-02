@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hangman</string>
+    <string name="edit_message">Enter a key or a word</string>
+    <string name="button_send">Enter</string>
+</resources>
