@@ -36,7 +36,7 @@ import java.util.logging.Logger;
         private boolean connected;
         private Handler outputHandler;
 
-        public void connect(Handler outputHandler) {
+        public void connect() {
             try {
                 this.socket = new Socket(HOST_ADDRESS, PORT);
                 this.socket.setSoTimeout(TIMEOUT);
@@ -69,6 +69,7 @@ import java.util.logging.Logger;
         }
 
         public void createListener(Handler handler){
+
             new Thread(new Listener(handler)).start();
         }
 

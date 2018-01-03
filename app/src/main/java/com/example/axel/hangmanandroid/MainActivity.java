@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected ServerConnection doInBackground(Void...voids ) {
             ServerConnection serverConnection = new ServerConnection();
-            serverConnection.connect(handler);
+            serverConnection.connect();
             serverConnection.createListener(handler);
             return serverConnection;
         }
