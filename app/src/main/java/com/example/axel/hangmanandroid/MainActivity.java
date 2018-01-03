@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(ServerConnection serverConnection){
             MainActivity.this.serverConnection = serverConnection;
         }
-
     }
 
     private class SendToServer extends AsyncTask<String, Void, Void> {
