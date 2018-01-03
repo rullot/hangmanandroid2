@@ -21,13 +21,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         txt = (TextView) findViewById(R.id.textView);
         handler = new Handler() {
             @Override
             public void handleMessage(final Message msg) {
-                runOnUiThread( new Runnable() {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void run(){
+                    public void run() {
                         Bundle b = msg.getData();
                         String key = b.getString("KEY");
                         System.out.println(key);
@@ -38,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         };
         new ConnectServer().execute();
     }
-
 
     public void sendMessage(View view){
         EditText editText = (EditText) findViewById(R.id.editText);
